@@ -1,6 +1,6 @@
 {
   "name": "rap-node-plugin",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Nodejs Plugin for RAP.",
   "homepage": "https://github.com/wangjeaf/rap-node-plugin",
   "keywords": [
