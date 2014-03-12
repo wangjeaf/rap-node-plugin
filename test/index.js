@@ -1,6 +1,3 @@
-var fs = require('fs')
-var _ = require('underscore');
-
 var rapnode = require('../index.js');
 
 global.RAP_FLAG = 1;
