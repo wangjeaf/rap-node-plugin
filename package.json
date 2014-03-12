@@ -1,0 +1,35 @@
+{
+  "name": "rap-node-plugin",
+  "version": "0.0.0",
+  "description": "Nodejs Plugin for RAP.",
+  "homepage": "https://github.com/wangjeaf/rap-node-plugin",
+  "keywords": [
+    "Nodejs",
+    "RAP",
+    "Plugin"
+  ],
+  "author": "wangjeaf <wangjeaf@gmail.com>",
+  "contributors": [
+    "wangjeaf <wangjeaf@gmail.com>"
+  ],
+  "engines": {
+    "node": ">= 0.8.17"
+  },
+  "devDependencies": {
+    "follow-redirects": "*",
+    "async": "*",
+    "mockjs": "*"
+  },
+  "dependencies": {
+    "underscore": "~1.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wangjeaf/rap-node-plugin"
+  },
+  "main": "./index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "preferGlobal": false
+}
