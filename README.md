@@ -5,8 +5,6 @@ nodejs plugin for RAP
 
 ## 安装
 
-安装 `rap-node-plugin` 
-
 `npm install rap-node-plugin --save-dev`
 
 ## 使用
@@ -63,8 +61,6 @@ rapnode.getRapData({
 });
 ```
 
-可配置项包括：
-
 - `businessFunction` 真正获取业务数据的方法，目前暂不支持传参数
 
 - `callback` 请求数据后的回调
@@ -95,6 +91,4 @@ rapnode.config({
 
 ## 说明
 
-- 默认是去 `rap.alibaba-inc.com` 获取模拟数据，如果您不是在阿里内网，默认数据是不能使用的
-
-- 
+- 默认是从 `rap.alibaba-inc.com` 获取RAP模拟数据，如果您不是在阿里内网，默认数据是不能使用的
