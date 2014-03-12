@@ -42,7 +42,9 @@ rapnode.getRapData('/perf/2014.json', function() {
 
 ## API
 
-### getRapData(url, businessFunction, callback)
+### getRapData([projectId, ]url, businessFunction, callback)
+
+- `projectId` 项目ID，如果传入了4个参数，则认为第一个参数是项目ID，其他参数顺序往后推。
 
 - `url` 请求的Action。此参数可以是object，可实时指定项目ID等信息，例如：
 

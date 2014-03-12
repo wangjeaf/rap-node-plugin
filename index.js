@@ -18,7 +18,13 @@ function config(options) {
 
 function getRapData(url, fn, callback) {
     var host = HOST, port = PORT, projectId = PROJECT_ID;
-
+    
+    if (arguments.length == 4) {
+        projectId = url;
+        url = fn;
+        fn = callback;
+        callback = arguments[3];
+    }
     
     if (!global.RAP_FLAG // 全局开关关闭
         || typeof url == 'object' && 'rap' in url && !url.rap) { //局部开关强制关闭

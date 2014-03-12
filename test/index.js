@@ -2,7 +2,6 @@ var rapnode = require('../index.js');
 
 global.RAP_FLAG = 1;
 
-
 rapnode.getRapData({
     url: '/perf/2014.json',         // action url
     projectId: '85',                // 项目ID，默认请参见config
@@ -17,7 +16,7 @@ rapnode.getRapData({
 });
 
 
-rapnode.getRapData('/perf/2014.json', function() {
+rapnode.getRapData(85, '/perf/2014.json', function() {
     return {a: 1, b: 2}
 }, function(err, r) {
     var data = r;
