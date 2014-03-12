@@ -17,7 +17,11 @@ function config(options) {
 }
 
 function getRapData(url, fn, callback) {
-    if (!global.RAP_FLAG) {
+    var host = HOST, port = PORT, projectId = PROJECT_ID;
+
+    
+    if (!global.RAP_FLAG // 全局开关关闭
+        || typeof url == 'object' && 'rap' in url && !url.rap) { //局部开关强制关闭
         if (WRAPPER) {
             var result = {};
             result[WRAPPER] = fn();
@@ -25,17 +29,28 @@ function getRapData(url, fn, callback) {
         } else {
             callback(null, fn());
         }
-        
         return;
     }
+
+    if (typeof url == 'object') {
+        var options = url;
+        host = options.host || host;
+        url = options.url;
+        if (!url) {
+            throw 'url应该在options中';
+        }
+        port = options.port || port;
+        projectId = options.projectId || projectId;
+    }
+
     if (url.charAt(0) != '/') {
         url = '/' + url;
     }
 
     ajax({
-        host: HOST,
-        port: PORT,
-        path: MOCK + PROJECT_ID + url,
+        host: host,
+        port: port,
+        path: MOCK + projectId + url,
         dataType: 'json'
     }, function(err, data) {
         if (err) {
