@@ -4,19 +4,28 @@ var HOST = 'rap.alibaba-inc.com';
 var PORT = 80;
 var MOCK = '/mockjs/';
 var PROJECT_ID = 85;
+var WRAPPER = 'crox_root';
 
 function config(options) {
     HOST = options.host || HOST;
     PORT = options.port || PORT;
     PROJECT_ID = options.projectId || PROJECT_ID;
     MOCK = options.mock || MOCK;
+    if ('wrapper' in options) {
+        WRAPPER = options.wrapper;
+    }
 }
 
 function getRapData(url, fn, callback) {
     if (!global.RAP_FLAG) {
-        callback(null, {
-            crox_root: fn()
-        });
+        if (WRAPPER) {
+            var result = {};
+            result[WRAPPER] = fn();
+            callback(null, result);
+        } else {
+            callback(null, fn());
+        }
+        
         return;
     }
     if (url.charAt(0) != '/') {
@@ -32,9 +41,13 @@ function getRapData(url, fn, callback) {
         if (err) {
             callback(err);
         } else {
-            callback(null, {
-                crox_root: data
-            })
+            if (WRAPPER) {
+                var result = {};
+                result[WRAPPER] = data;
+                callback(null, result);
+            } else {
+                callback(null, data);
+            }
         }
     });
 }

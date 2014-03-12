@@ -35,3 +35,4 @@ rapnode.getRapData('/perf/2014.json', function() {
     - `port` rap服务端口号（默认是 80）
     - `projectId` 项目ID（默认是85）
     - `mock` rap服务mockjs请求的路径前缀，默认是 `/mockjs/`
+    - `wrapper` 返回数据的包装属性名，用于在php或vm中指定根属性名，默认为 `crox_root`
