@@ -12,7 +12,7 @@ nodejs plugin for RAP
 ## 使用
 
 ```js
-var rapnode = require('../index.js');
+var rapnode = require('rap-node-plugin');
 
 global.RAP_FLAG = 1;  // 开启RAP
 
@@ -35,4 +35,18 @@ rapnode.getRapData('/perf/2014.json', function() {
     - `port` rap服务端口号（默认是 80）
     - `projectId` 项目ID（默认是85）
     - `mock` rap服务mockjs请求的路径前缀，默认是 `/mockjs/`
-    - `wrapper` 返回数据的包装属性名，用于在php或vm中指定根属性名，默认为 `crox_root`
+    - `wrapper` 返回数据的包装属性名，用于在php或vm中指定根属性名，默认为 `crox_root`，如果设置为`空字符串` 或 `false`，则不包装
+
+配置示例
+
+```js
+var rapnode = require('rap-node-plugin');
+
+rapnode.config({
+    host: '10.33.12.32',    //启动的服务主机
+    port: '7000',           //端口号
+    projectId: 67,          //RAP配置的项目ID
+    mock: '/mymockjsurl/',  //RAP前缀
+    wrapper: ''             //不需要包装
+})
+```
