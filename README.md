@@ -16,6 +16,7 @@ var rapnode = require('rap-node-plugin');
 
 global.RAP_FLAG = 1;  // 开启RAP
 
+// 默认是获取85项目下的 `/perf/2014.json` 
 rapnode.getRapData('/perf/2014.json', function() {
     return {a: 1, b: 2}
 }, function(err, r) {
@@ -24,6 +25,22 @@ rapnode.getRapData('/perf/2014.json', function() {
 });
 ```
 
+由于已经在`rap.alibaba-inc.com`中配置了 `85` 项目，而且配置了`/perf/2014.json`相关的接口，因此RAP返回的数据结合 `Mockjs` 以后，数据示例如下：
+
+```js
+{ 
+    crox_root: { 
+        percent: 0.1,
+        month_salary: 9,
+        perf_total: '3.5B',
+        year: 2034,
+        perf: 3.5,
+        season: '四',
+        name: '思竹',
+        values: 'B' 
+    } 
+}
+```
 
 ## 说明
 
