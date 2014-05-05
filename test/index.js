@@ -16,9 +16,7 @@ rapnode.getRapData({
 });
 
 
-rapnode.getRapData(85, '/perf/2014.json', function() {
-    return {a: 1, b: 2}
-}, function(err, r) {
+rapnode.getRapData(85, '/perf/2014.json', function(err, r) {
     var data = r;
     console.log(data);
 });

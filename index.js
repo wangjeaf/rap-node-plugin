@@ -16,6 +16,10 @@ function config(options) {
     }
 }
 
+function empty() {
+
+}
+
 function getRapData(url, fn, callback) {
     var host = HOST, port = PORT, projectId = PROJECT_ID;
     
@@ -24,8 +28,17 @@ function getRapData(url, fn, callback) {
         url = fn;
         fn = callback;
         callback = arguments[3];
+    } else if (arguments.length == 3 && typeof url == 'number') {
+        projectId = url;
+        url = fn;
+        fn = null;
+    } else if (arguments.length == 2 && typeof url == 'string') {
+        callback = fn;
+        fn = null;
     }
     
+    fn = fn || empty;
+
     if (!global.RAP_FLAG // 全局开关关闭
         || typeof url == 'object' && 'rap' in url && !url.rap) { //局部开关强制关闭
         if (WRAPPER) {

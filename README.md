@@ -40,11 +40,11 @@ rapnode.getRapData('/perf/2014.json', function() {
 
 ## API
 
-### getRapData([projectId, ]url, businessFunction, callback)
+### getRapData([projectId, ]url, [businessFunction,] callback)
 
-- `projectId` 项目ID，如果传入了4个参数，则认为第一个参数是项目ID，其他参数顺序往后推。
+- `projectId` `可选` 项目ID，如果传入了4个参数，则认为第一个参数是项目ID，其他参数顺序往后推。
 
-- `url` 请求的Action。此参数可以是object，可实时指定项目ID等信息，例如：
+- `url` `必传` 请求的Action。此参数可以是object，可实时指定项目ID等信息，例如：
 
 ```js
 rapnode.getRapData({
@@ -61,9 +61,34 @@ rapnode.getRapData({
 });
 ```
 
-- `businessFunction` 真正获取业务数据的方法，目前暂不支持传参数
+- `businessFunction` `可选` 真正获取业务数据的方法，目前暂不支持传参数
 
-- `callback` 请求数据后的回调
+- `callback` `必传` 请求数据后的回调
+
+### 调用示例
+```js
+rapnode.getRapData({
+    url: '/perf/2014.json', 
+    projectId: '85', 
+    port: 80,
+    host: 'rap.alibaba-inc.com', 
+    rap: false
+}, function() {
+}, function(err, r) {
+});
+```
+
+```
+rapnode.getRapData(85, '/perf/2014.json', function() {}, function(err, data))
+```
+
+```
+rapnode.getRapData(85, '/perf/2014.json', function(err, data))
+```
+
+```
+rapnode.getRapData('/perf/2014.json', function(err, data)
+```
 
 ### config(options)
 
