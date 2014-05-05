@@ -15,11 +15,8 @@ var rapnode = require('rap-node-plugin');
 global.RAP_FLAG = 1;  // 开启RAP
 
 // 默认是获取85项目下的 `/perf/2014.json` 
-rapnode.getRapData('/perf/2014.json', function() {
-    return {a: 1, b: 2}
-}, function(err, r) {
-    var data = r;
-    console.log(data);
+rapnode.getRapData(85, '/perf/2014.json', function(err, r) {
+    console.log(r);
 });
 ```
 
