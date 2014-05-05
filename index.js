@@ -4,7 +4,7 @@ var HOST = 'rap.alibaba-inc.com';
 var PORT = 80;
 var MOCK = '/mockjs/';
 var PROJECT_ID = 85;
-var WRAPPER = 'crox_root';
+var WRAPPER = '';
 
 function config(options) {
     HOST = options.host || HOST;
@@ -61,14 +61,14 @@ function getRapData(url, fn, callback) {
     }, function(err, data) {
         if (err) {
             callback(err);
+            return
+        }
+        if (WRAPPER) {
+            var result = {};
+            result[WRAPPER] = data;
+            callback(null, result);
         } else {
-            if (WRAPPER) {
-                var result = {};
-                result[WRAPPER] = data;
-                callback(null, result);
-            } else {
-                callback(null, data);
-            }
+            callback(null, data);
         }
     });
 }

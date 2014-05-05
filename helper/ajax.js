@@ -57,6 +57,10 @@ function ajax(options, callback) {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Content-Length': content.length
         };
+    } else {
+        reqOptions.headers = {
+            'Content-Type': 'application/json'
+        };
     }
 
     var req = http.request(reqOptions, function(res) {
@@ -67,7 +71,8 @@ function ajax(options, callback) {
         });
         res.on('end', function(){
             data = data.replace(/^\s*callback\(|\)$/g, '');
-            if (dataType == 'json') {
+            if (dataType == 'json' && typeof data == 'string') {
+                data = data.trim();
                 try {
                     data = JSON.parse(data);
                     data = mockjs.mock(data);
