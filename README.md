@@ -27,16 +27,14 @@ rapnode.getRapData('/perf/2014.json', function() {
 
 ```js
 { 
-    crox_root: { 
-        percent: 0.1,
-        month_salary: 9,
-        perf_total: '3.5B',
-        year: 2034,
-        perf: 3.5,
-        season: '四',
-        name: '思竹',
-        values: 'B' 
-    } 
+    percent: 0.1,
+    month_salary: 9,
+    perf_total: '3.5B',
+    year: 2034,
+    perf: 3.5,
+    season: '四',
+    name: '思竹',
+    values: 'B' 
 }
 ```
 
@@ -75,7 +73,7 @@ rapnode.getRapData({
     - `port` rap服务端口号（默认是 80）
     - `projectId` 项目ID（默认是85）
     - `mock` rap服务mockjs请求的路径前缀，默认是 `/mockjs/`
-    - `wrapper` 返回数据的包装属性名，用于在php或vm中指定根属性名，默认为 `crox_root`，如果设置为`空字符串` 或 `false`，则不包装
+    - `wrapper` 返回数据的包装属性名，用于在php或vm中指定根属性名，默认为 `空`，如果设置为`空字符串` 或 `false`，则不包装
 
 #### 配置示例
 
